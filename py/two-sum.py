@@ -10,19 +10,19 @@ Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 '''
+# O(n^2) runtime solution, O(1) extra space
 class Solution:
     def twoSum(self, nums: [int], target: int) -> [int]:
         if len(nums) == 2:
             return [0, 1]
 
-        lst = []
         for i in range(len(nums)):
-            lst.append(nums[i])
-            for j in range(i, len(nums)):
-                if nums[i] + nums[j] == target and i != j:
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
                     return [i, j]
 
 
+# O(n) runtime+space solution, is the # of unique integers in nums
 class Solution:
     def twoSum(self, nums: [int], target: int) -> [int]:
         # target -= 30
