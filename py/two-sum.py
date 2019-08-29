@@ -31,11 +31,11 @@ class Solution:
             return [0, 1]
 
         ret = [None, None]
-        for i, v in enumerate(nums):
-            comp = target - v
+        for key, val in enumerate(nums):
+            comp = target - val
             if comp in seen:
-                return [seen[comp], i]
-            seen[v] = i
+                return [seen[comp], key]
+            seen[val] = key
 
 
 
