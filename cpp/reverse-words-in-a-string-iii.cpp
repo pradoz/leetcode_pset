@@ -26,7 +26,7 @@ public:
     string reverseWords(string s) {
         int front_of_word = 0;
         int whitespace_idx = 0;
-        static constexpr int sz = s.length();
+        const int sz = s.length();
 
         while (whitespace_idx < sz) {
             // Find the next whitespace index
