@@ -1,25 +1,21 @@
 #include <iostream>
+#include<array>
+#include<functional>
 
 #include <vector>
 using namespace std;
 
 
 int main() {
-    int x = 0;
-    x ^= 5;
-    cout << x << endl;
+    vector<int> vec = { 1,2,3,4,5,6,7,8,9 };
 
-    x ^= 5;
-    cout << x << endl;
+    sort(begin(vec), end(vec), [] (int a, int b) {
+        return b > a;
+    });
 
-    x ^= 10;
-    cout << x << endl;
-
-    x ^= 10;
-    cout << x << endl;
-
-    x ^= 10;
-    cout << x << endl;
+    for (auto item : vec) {
+        cout << item << ' ';
+    }
 
     return 0;
 }
