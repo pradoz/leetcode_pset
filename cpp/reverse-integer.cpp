@@ -44,6 +44,7 @@ private:
 class Solution {
 public:
     int reverse(int x) {
+        // use long long, since abs(-2^31) = 2^31 = overflow!
         long long ret = 0;
         while (x != 0) {
 
