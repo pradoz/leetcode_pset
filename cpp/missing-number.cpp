@@ -110,9 +110,8 @@ public:
     }
 };
 
-
 // We know that sum(1,2,3,...,n) = n(n+1)/2
-class Solution {
+class Solution3 {
 public:
     int missingNumber(vector<int>& nums) {
         const int n = nums.size();
@@ -123,6 +122,15 @@ public:
         sum = (n*(n+1)/2) - sum;
 
         return sum;
+    }
+};
+
+#include <numeric>
+// funny one-liner
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        return ((nums.size()*(nums.size()+1)/2) - accumulate(nums.begin(), nums.end(), 0));
     }
 };
 
