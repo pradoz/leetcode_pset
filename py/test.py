@@ -5,3 +5,5 @@ for i in lst:
     if i & ~1:
         total += i
         print(i)
+
+print(5 // 3)
