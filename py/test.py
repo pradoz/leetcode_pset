@@ -6,4 +6,4 @@ for i in lst:
         total += i
         print(i)
 
-print(5 // 3)
+print(product([5,3,10]))
