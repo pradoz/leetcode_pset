@@ -1,6 +1,5 @@
 #include <cstdio>
 
-
 bool checkPossibility(int* nums, int numsSize) {
     bool flag = false;
     for (int i = 1; i < numsSize; ++i) {
@@ -15,9 +14,9 @@ bool checkPossibility(int* nums, int numsSize) {
             // no initial space, modify the front of the array
             i < 2 // you can nest ternary operators, apparently
             ? nums[i - 1] = nums[i]
-            : (nums[i] = (nums[i - 2] < nums[i]
-                    ? nums[i - 1] = nums[i]
-                    : nums[i - 1]));
+            : nums[i] = (nums[i - 2] < nums[i]
+                ? nums[i - 1] = nums[i]
+                : nums[i - 1]);
             // if (i < 2) {
             //     nums[i - 1] = nums[i];
             // }
@@ -32,7 +31,6 @@ bool checkPossibility(int* nums, int numsSize) {
 
     return true;
 }
-
 
 
 

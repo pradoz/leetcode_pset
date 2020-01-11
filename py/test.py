@@ -1,9 +1,4 @@
-lst = list(range(1,100))
-total = 0
-for i in lst:
-    # get any odd number since there can be at most one odd number
-    if i & ~1:
-        total += i
-        print(i)
-
-print(product([5,3,10]))
+test = [(1, 3), (3, 4), (2, 2)]
+print(test)
+test.sort(key=lambda x: x[1])
+print(test)
