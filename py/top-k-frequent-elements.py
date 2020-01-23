@@ -1,4 +1,4 @@
-class Solution:
+class Solution1:
     def topKFrequent(self, nums: [int], k: int) -> [int]:
         frequencies = {}
 
@@ -18,6 +18,33 @@ class Solution:
         while counter < k:
             result.append(temp[counter][0])
             counter += 1
+
+        return result
+
+
+import heapq
+
+class Solution:
+    def topKFrequent(self, nums: [int], k: int) -> [int]:
+        frequencies = {}
+
+        for num in nums:
+            if num not in frequencies:
+                frequencies[num] = 1
+            else:
+                frequencies[num] += 1
+
+        heap = []
+        # 
+        for key, val in frequencies.items():
+            heapq.heappush(heap, (val, key))
+            if len(heap) > k:
+                heapq.heappop(heap);
+
+        # heap.sort(key=lambda x: x[1], reverse=True)
+        result = []
+        while len(heap) > 0:
+            result.append(heapq.heappop(heap)[1])
 
         return result
 
