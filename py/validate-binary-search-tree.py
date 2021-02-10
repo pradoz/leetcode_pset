@@ -6,20 +6,22 @@
 #         self.right = None
 
 class Solution:
-    def isValidBST(self, root: TreeNode) -> bool:
-        def helper(node: TreeNode, lower, upper: int) -> bool:
-            if not node:
-                return True
-            val = node.val
-            if val <= lower or val >= upper:
-                return False
-
-            if not (helper(node.right, val, upper) or (node.left, lower, val)):
-                return False
-            if not helper(node.left, lower, val):
-                return False
+    def isValidHelper(self, node: TreeNode, lower, upper: int) -> bool:
+        if not node: # base case, empty tree is a valid BST
             return True
-        return helper(root, float('-inf'), float('inf'))
+
+        val = node.val
+        if (val > lower and val < upper) and \
+            self.isValidHelper(node.left, lower, node.val) and \
+            self.isValidHelper(node.right, node.val, upper):
+                return True
+        return False
+
+
+    def isValidBST(self, root: TreeNode) -> bool:
+        return self.isValidHelper(root, float('-inf'), float('inf'))
+
+
 
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
