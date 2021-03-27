@@ -1,3 +1,32 @@
+
+
+
+''' DFS - visit each cell and mark adjacent land '''
+class SolutionDFS:
+    def numIslands(self, grid) -> int:
+        if not grid: return 0
+
+        island_count = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == '1':
+                    self.dfs(grid, i, j)
+                    island_count += 1
+        return island_count
+
+    def dfs(self, grid, i, j):
+        if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]) or grid[i][j] != '1':
+            return
+        grid[i][j] = '#' # mark as visited
+
+        # call dfs on adjacent squares
+        self.dfs(grid, i-1, j)
+        self.dfs(grid, i+1, j)
+        self.dfs(grid, i, j-1)
+        self.dfs(grid, i, j+1)
+
+
+
 '''
 Solution Explanation:
     Traverse the grid until we find a land block, then call DFS on any
@@ -11,8 +40,8 @@ Space Complexity: O(m*n), in the worst case of all land blocks, we have to
     store the entire grid.
 '''
 
-class Solution(object):
-    def numIslands(self, grid: [[str]]) -> int:
+class Solution0:
+    def numIslands(self, grid) -> int:
         if not grid or not grid[0]:
             return 0
 
@@ -63,21 +92,8 @@ Space Complexity: O(min(m,n)), in the worst case where the entire grid is land
     blocks the queue will have at most min(m, n) elements.
 '''
 
-'''
-Solution Explanation:
-    Traverse the grid until we find a land block, then call BFS where we
-    enqueues the current cell, marks it as seen, then searches all of its
-    neighbors. If the queue is empty, then all lands blocks have been marked
-    in the connected island.
 
-If m and n are the number of rows and columns in the grid, respectively, then:
-Time Complexity: O(m*n), since we may have to check every value in n for every
-    value in m.
-Space Complexity: O(min(m,n)), in the worst case where the entire grid is land
-    blocks the queue will have at most min(m, n) elements.
-'''
-
-class Solution(object):
+class Solution1:
     def inRange(self, grid: [[int]], r, c: [int]) -> bool:
         numRow, numCol = len(grid), len(grid[0])
         if r < 0 or c < 0 or r >= numRow or c >= numCol:
@@ -122,7 +138,7 @@ class Solution(object):
                     grid[next_row][next_col] = -1
 
 # Shorter pythonic solution
-class Solution(object):
+class Solution2:
     def numIslands(self, grid):
         def sink(i, j):
             # Bounds check
