@@ -1,9 +1,8 @@
 from typing import List
 
 class Solution:
-    def func(self, nums: List[int]) -> int:
+    def func(self) -> int:
         result = 0
-        nums[0] = 0
         # think then code
 
         return result
@@ -23,7 +22,7 @@ test_cases = len(test_results)
 def run_test() -> None:
     s = Solution()
     for i in range (test_cases):
-        check_test = s.func(nums[i])
+        check_test = s.func()
         test_flag = True if check_test == test_results[i] else False
         if test_flag == True:
             print(f'++++ TEST #{i+1}: SUCCESS. Result = {check_test}')
