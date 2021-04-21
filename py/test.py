@@ -1,3 +1,3 @@
-test = 'we thinkd'
-
-print(test[3 : 3+5])
+class Solution:
+    def numIslands(self, grid: [[str]]) -> int:
+        

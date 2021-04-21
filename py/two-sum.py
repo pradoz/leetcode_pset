@@ -16,6 +16,9 @@ class Solution0:
         if len(nums) == 2:
             return [0, 1]
 
+        # for i, a in enumerate(nums):
+        #     for j, b in enumerate(nums):
+
         for i in range(len(nums)):
             for j in range(i + j + 1, len(nums)):
                 check = nums[i] + nums[j]
