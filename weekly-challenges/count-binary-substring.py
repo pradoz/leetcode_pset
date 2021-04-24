@@ -1,9 +1,20 @@
 from typing import List
 
 class Solution:
-    def func(self) -> int:
+    def countBinarySubstrings(self, s: str) -> int:
         result = 0
-        # think then code
+        prev = 0
+        curr = 1
+
+        for i in range(1, len(s)):
+            print(prev, curr, result)
+            if s[i-1] != s[i]:
+                result += min(curr, prev)
+                prev = curr
+                curr = 1
+            else:
+                curr += 1
+        result += min(curr, prev)
 
         return result
 
@@ -14,15 +25,15 @@ class Solution:
 
 
 
-nums = [[1,3],[1,2],[0,0],[],[2]]
+st = ["00110011", "10101"]
 
-test_results = [2, 2, 0, 1, 2]
+test_results = [6, 4]
 test_cases = len(test_results)
 
 def run_test() -> None:
-    sol = Solution()
+    s = Solution()
     for i in range (test_cases):
-        check_test = sol.func()
+        check_test = s.countBinarySubstrings(st[i])
         test_flag = True if check_test == test_results[i] else False
         if test_flag == True:
             print(f'++++ TEST #{i+1}: SUCCESS. Result = {check_test}')
