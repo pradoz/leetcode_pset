@@ -1,9 +1,8 @@
 from typing import List
 
 class Solution:
-    def func(self) -> int:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
         result = 0
-        # think then code
 
         return result
 
@@ -14,15 +13,18 @@ class Solution:
 
 
 
-nums = []
+obstacleGrid = [
+                [[0,0,0],[0,1,0],[0,0,0]],
+                [[0,1],[0,0]],
+               ]
 
-test_results = []
+test_results = [2, 1]
 test_cases = len(test_results)
 
 def run_test() -> None:
     sol = Solution()
     for i in range (test_cases):
-        check_test = sol.func()
+        check_test = sol.uniquePathsWithObstacles(obstacleGrid[i])
         test_flag = True if check_test == test_results[i] else False
         if test_flag == True:
             print(f'++++ TEST #{i+1}: SUCCESS. Result = {check_test}')

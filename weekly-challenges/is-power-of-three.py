@@ -1,11 +1,14 @@
-from typing import List
-
 class Solution:
-    def func(self) -> int:
-        result = 0
-        # think then code
+    def isPowerOfThree(self, n: int) -> bool:
+        if n == 0: return False # lower bound of problem statement
+        
+        while n % 3 == 0:
+            # digit = num % 3
+            n //= 3
 
-        return result
+        # result = True if n == 1 else False
+        # return result
+        return n == 1
 
 
 
@@ -14,15 +17,15 @@ class Solution:
 
 
 
-nums = []
+n= [27, 0, 9, 45]
 
-test_results = []
+test_results = [True, False, True, False]
 test_cases = len(test_results)
 
 def run_test() -> None:
     sol = Solution()
     for i in range (test_cases):
-        check_test = sol.func()
+        check_test = sol.isPowerOfThree(n[i])
         test_flag = True if check_test == test_results[i] else False
         if test_flag == True:
             print(f'++++ TEST #{i+1}: SUCCESS. Result = {check_test}')
